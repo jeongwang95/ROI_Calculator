@@ -27,10 +27,12 @@ Rent Data:
         new_rent = float(input("What is the new rent? $"))
         old_rent = self.rent
         self.rent = new_rent
-        print(f"The rent of {self.address} in {self.state} has been updated from ${old_rent} to ${new_rent}!")
+        print(f"The rent of {self.address} in {self.state} has been updated from ${old_rent} to ${new_rent}.")
 
     def change_coi(self, new_coi):
+        old_coi = self.coi
         self.coi = new_coi
+        print(f"The COI of {self.address} in {self.state} has been updated from ${old_coi} to ${new_coi}.")
 
     def __repr__(self):
         return f"\nProperty: {self.address}\nLocation: {self.state}\nRent: ${self.rent}\nCOI: ${self.coi}"
@@ -160,9 +162,11 @@ Current Users:
                 
                 if choice in ('rent', 'change rent'):
                     p.change_rent()
+                    break
                 elif choice in ('coi', 'change coi', 'cost of invesment', 'change cost of invesment'):
                     new_coi = float(input("What is the new cost of investment (COI)? $"))
                     p.change_coi(new_coi)
+                    break
                 else:
                     print("Invalid input. Returning to User Menu")
                     break
